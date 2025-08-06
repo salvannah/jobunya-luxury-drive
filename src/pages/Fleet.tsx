@@ -14,6 +14,16 @@ import {
   Filter
 } from "lucide-react";
 
+// Import car images
+import mercedesEClass from "@/assets/mercedes-e-class.jpg";
+import bmw5Series from "@/assets/bmw-5-series.jpg";
+import mercedesSClass from "@/assets/mercedes-s-class.jpg";
+import landCruiser from "@/assets/land-cruiser.jpg";
+import mercedesGClass from "@/assets/mercedes-g-class.jpg";
+import toyotaCamry from "@/assets/toyota-camry.jpg";
+import nissanXTrail from "@/assets/nissan-x-trail.jpg";
+import toyotaCorolla from "@/assets/toyota-corolla.jpg";
+
 const Fleet = () => {
   const [selectedCategory, setSelectedCategory] = useState("all");
 
@@ -37,7 +47,7 @@ const Fleet = () => {
       price: "8,500",
       features: ["Leather Seats", "Climate Control", "GPS Navigation", "Bluetooth"],
       rating: 4.9,
-      image: "🚗",
+      image: mercedesEClass,
       popular: true
     },
     {
@@ -51,7 +61,7 @@ const Fleet = () => {
       price: "9,000",
       features: ["Premium Sound", "Sunroof", "Parking Sensors", "Heated Seats"],
       rating: 4.8,
-      image: "🚗",
+      image: bmw5Series,
       popular: false
     },
     {
@@ -65,7 +75,7 @@ const Fleet = () => {
       price: "12,000",
       features: ["Massage Seats", "Premium Audio", "Executive Rear", "Night Vision"],
       rating: 5.0,
-      image: "🚗",
+      image: mercedesSClass,
       popular: true
     },
     {
@@ -79,7 +89,7 @@ const Fleet = () => {
       price: "10,500",
       features: ["4WD", "Off-road Capable", "Third Row", "Roof Rails"],
       rating: 4.7,
-      image: "🚙",
+      image: landCruiser,
       popular: false
     },
     {
@@ -93,7 +103,7 @@ const Fleet = () => {
       price: "15,000",
       features: ["Premium Interior", "Off-road Package", "AMG Styling", "360° Camera"],
       rating: 4.9,
-      image: "🚙",
+      image: mercedesGClass,
       popular: true
     },
     {
@@ -107,7 +117,7 @@ const Fleet = () => {
       price: "6,500",
       features: ["Fuel Efficient", "Spacious", "Safety Features", "Comfort Package"],
       rating: 4.6,
-      image: "🚗",
+      image: toyotaCamry,
       popular: false
     },
     {
@@ -121,7 +131,7 @@ const Fleet = () => {
       price: "7,500",
       features: ["All-wheel Drive", "Third Row", "Large Boot", "Safety Shield"],
       rating: 4.5,
-      image: "🚙",
+      image: nissanXTrail,
       popular: false
     },
     {
@@ -135,7 +145,7 @@ const Fleet = () => {
       price: "4,500",
       features: ["Fuel Efficient", "Reliable", "Safety Sense", "Easy Parking"],
       rating: 4.4,
-      image: "🚗",
+      image: toyotaCorolla,
       popular: false
     }
   ];
@@ -199,8 +209,14 @@ const Fleet = () => {
               <Card key={vehicle.id} className="card-luxury hover-lift group">
                 <CardContent className="p-0">
                   {/* Vehicle Image */}
-                  <div className="relative p-8 text-center bg-gradient-card rounded-t-lg">
-                    <div className="text-6xl mb-4">{vehicle.image}</div>
+                  <div className="relative overflow-hidden rounded-t-lg bg-gradient-card">
+                    <div className="aspect-video">
+                      <img 
+                        src={vehicle.image} 
+                        alt={vehicle.name}
+                        className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      />
+                    </div>
                     {vehicle.popular && (
                       <Badge className="absolute top-4 right-4 bg-primary text-primary-foreground">
                         Most Popular
